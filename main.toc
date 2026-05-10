@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Explicar problema}{2}{section.1}%
+\contentsline {section}{\numberline {2}Explicar complexitat problema}{2}{section.2}%
+\contentsline {section}{\numberline {3}Explicar complexitat de subproblemes trobats}{3}{section.3}%
+\contentsline {section}{\numberline {4}Algoritmes d’aproximacio}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Demostracio (tot maximal matching es una 2-aproximacio del minimum maximal matching)}{4}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Algoritmes aleatoris}{4}{section.5}%
