@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.23)  10 MAY 2026 12:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.23)  10 MAY 2026 19:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,17 +489,17 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-ec.enc}] (./parts/explicar-problema.tex
-<images/image1.png, id=44, 604.2575pt x 133.49875pt>
+<images/image1.png, id=64, 604.2575pt x 133.49875pt>
 File: images/image1.png Graphic file (type png)
 <use images/image1.png>
 Package pdftex.def Info: images/image1.png  used on input line 4.
 (pdftex.def)             Requested size: 375.80544pt x 83.02705pt.
-<images/image2.png, id=46, 331.2375pt x 66.2475pt>
+<images/image2.png, id=66, 331.2375pt x 66.2475pt>
 File: images/image2.png Graphic file (type png)
 <use images/image2.png>
 Package pdftex.def Info: images/image2.png  used on input line 11.
 (pdftex.def)             Requested size: 375.80544pt x 75.16507pt.
-<images/image3.png, id=47, 113.42375pt x 216.81pt>
+<images/image3.png, id=67, 113.42375pt x 216.81pt>
 File: images/image3.png Graphic file (type png)
 <use images/image3.png>
 Package pdftex.def Info: images/image3.png  used on input line 22.
@@ -521,7 +521,7 @@ enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
 /share/texmf/fonts/enc/dvips/lm/lm-ts1.enc} <./images/image1.png> <./images/ima
 ge2.png>])
 (./parts/explicar-complexitat-de-subproblemes-trobats.tex
-<images/image4.png, id=60, 187.70125pt x 273.02pt>
+<images/image4.png, id=80, 187.70125pt x 273.02pt>
 File: images/image4.png Graphic file (type png)
 <use images/image4.png>
 Package pdftex.def Info: images/image4.png  used on input line 43.
@@ -531,17 +531,21 @@ Package pdftex.def Info: images/image4.png  used on input line 43.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[3]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 27.
 )
 (./parts/demostracio-tot-maximal-matching-es-una-2-aproximacio-del-minimum-maxi
-mal-matching.tex [3]) (./parts/algoritmes-aleatoris.tex
+mal-matching.tex) (./parts/algoritmes-aleatoris.tex [4{/usr/share/texmf/fonts/e
+nc/dvips/lm/lm-mathex.enc}]
 Overfull \hbox (73.0823pt too wide) in paragraph at lines 12--13
 \T1/lmr/m/n/10 ing. \T1/lmr/m/it/10 In-ter-na-tional Jour-nal of Com-puter Math
 -e-mat-ics\T1/lmr/m/n/10 , \T1/lmr/m/it/10 91\T1/lmr/m/n/10 (8), 1737--1752. []
 https://doi.org/10.1080/00207160.2013.853052[] 
  []
 
-[4]
-<images/image5.png, id=109, 395.4775pt x 306.14375pt>
+[5]
+<images/image5.png, id=155, 395.4775pt x 306.14375pt>
 File: images/image5.png Graphic file (type png)
 <use images/image5.png>
 Package pdftex.def Info: images/image5.png  used on input line 71.
@@ -550,34 +554,40 @@ Package pdftex.def Info: images/image5.png  used on input line 71.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [5] [6 <./images/image3.png>] [7 <./images/image4.png>] [8 <./images/image5.p
+) [6] [7 <./images/image3.png>] [8 <./images/image4.png>] [9 <./images/image5.p
 ng>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4CA1FBD3414EC977220084D2B4C6524B;1428.
+(rerunfilecheck)             Checksum: 2DE9045A584A0DC60CD607F11D8E5B93;2451.
  ) 
 Here is how much of TeX's memory you used:
- 10903 strings out of 476120
- 166770 string characters out of 5793657
- 1934975 words of memory out of 5000000
- 32694 multiletter control sequences out of 15000+600000
- 613390 words of font info for 79 fonts, out of 8000000 for 9000
+ 10937 strings out of 476120
+ 167233 string characters out of 5793657
+ 1935975 words of memory out of 5000000
+ 32712 multiletter control sequences out of 15000+600000
+ 629366 words of font info for 88 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 75i,7n,79p,855b,574s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,855b,574s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
-pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmsy7.pfb>
-Output written on main.pdf (8 pages, 235431 bytes).
+pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/l
+msy9.pfb>
+Output written on main.pdf (9 pages, 341175 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,10 +2,10 @@
 
 ((A **maximal matching** is a matching *M* of a graph *G* that is not a subset of any other matching. A matching *M* of a graph *G* is maximal if every edge in *G* has a non-empty intersection with at least one edge in *M*. The following figure shows examples of maximal matchings (red) in three graphs.))
 
-Un **maximal matching** és un matching M d’un graf G que no és un subset de cap altre matching. Un matching M d’un graf G és maximal si cada aresta en G té una intersecció no buida amb com a mínim una aresta de M. La següent figura mostra matchings maximals (vermell) en tres grafs \[1\]:  
+Un **maximal matching** és un matching M d'un graf G que no és un subset de cap altre matching. Un matching M d'un graf G és maximal si cada aresta en G té una intersecció no buida amb com a mínim una aresta de M. La següent figura mostra matchings maximals (vermell) en tres grafs \[1\]:  
 ![][image2]
 
-Un minimal maximal matching és un matching M de G tal que no hi ha cap altre matching amb menor nombre d’arestes.
+Un minimal maximal matching és un matching M de G tal que no hi ha cap altre matching amb menor nombre d'arestes.
 
 Propietats:
 
@@ -13,12 +13,12 @@ Un maximal matching M de tamany k per a un graf G és també un edge dominating 
 Un edge dominating set és per a un graf G un subset D de les arestes tal que cada aresta fora de D és adjacent a una aresta en D. \[2\]  
 ![][image3]  
 Busquem minimitzar-ho, per tant, obtenir el conjunt D de mida k mínima tq es forma un dominating set. No hi haura cap subconjunt D de mida k-1 tq siqui un maximal matching, i tota aresta no pertanyent a D sigui adjaceny a una aresta en D.  
-El problema decisional de trobar un dominating set de tamany k és equivalent al de trobar un maximal matching de tamany k. Aquest problema és també un problema conegut per ser NP-Complet, i la seva versió de minimització NP-Dificil. L'equivalència d’aquests dos problemes ens ajuda a reforçar la complexitat de minimum maximal matching.
+El problema decisional de trobar un dominating set de tamany k és equivalent al de trobar un maximal matching de tamany k. Aquest problema és també un problema conegut per ser NP-Complet, i la seva versió de minimització NP-Dificil. L'equivalència d'aquests dos problemes ens ajuda a reforçar la complexitat de minimum maximal matching.
 
 # **Explicar complexitat problema**
 
 Tot i que el problema de maximal matching es pot resoldre en temps polinòmic, no es coneix cap algoritme de temps polinòmic per resoldre minimum maximal matching.  
-El problema decisional de trobar un maximal matching amb tamany k és un exemple clar de un problema NP-Complet, I per tant el problema d’optimització de trobar el seu mínim és NP-Hard d’Optimització.
+El problema decisional de trobar un maximal matching amb tamany k és un exemple clar de un problema NP-Complet, I per tant el problema d'optimització de trobar el seu mínim és NP-Hard d'Optimització.
 
 Veurem la prova que és NP-hard amb una reducció de Vertex Cover (un altre problema NP-hard).  
 Explicació de Vertex Cover:  
@@ -26,28 +26,28 @@ Explicació de Vertex Cover:
 	Me devuelve un conjunto de vertices C tq toda arista del grafo tiene un extremo en un vertice del conjunto C.  
 Reducció:  
 	Partim de la Idea que si tenim un Vertex Cover, no podem treure cap node per cobrir totes les aristes.  
-	Partim d’un graf G i generarem un G’ tq:
+	Partim d'un graf G i generarem un G' tq:
 
 - Per tota arista (u,v) ∈ E en generem un node Xuv  
 - Afegim només les aristes entre u i Xuv, i v i Xuv.  
 - (Tota arista pasa a ser un vertex.)
 
-Com construir el Matching desde G’?
+Com construir el Matching desde G'?
 
 - Aparello tot node Xuv amb un node ∈ C (al vertex cover).  
 - Això em dona un aparellament maximal (no puc afegir cap i minim, tmp ho puc fer en menys).  
-- Sempre, si tinc un vertex cover de k nodes, tindré un aparellament amb k’\<=|E|+k → Puc acotar el nombre d’aparellaments reduint la k del vertex cover.
+- Sempre, si tinc un vertex cover de k nodes, tindré un aparellament amb k'\<=|E|+k → Puc acotar el nombre d'aparellaments reduint la k del vertex cover.
 
 	Per que funciona?
 
-- Aquest aparellament cobreix els nodes corresponents mitjançant els vèrtexs Xuv​, i és maximal ja que no es poden afegir més arestes sense violar les restriccions. També serà minim ja que mai no es podrà fer amb un nombre menor d’arestes.  
-- La importància darrera l’optimització del VC és que a menor VC, se’ns garanteix que podrem trobar un MinMM menor (acotat millor) i fer-ho més optim.  
-- Desd el meu G’ puc tornar a VC agafant els vertexs aparellats a G’
+- Aquest aparellament cobreix els nodes corresponents mitjançant els vèrtexs Xuv​, i és maximal ja que no es poden afegir més arestes sense violar les restriccions. També serà minim ja que mai no es podrà fer amb un nombre menor d'arestes.  
+- La importància darrera l'optimització del VC és que a menor VC, se'ns garanteix que podrem trobar un MinMM menor (acotat millor) i fer-ho més optim.  
+- Desd el meu G' puc tornar a VC agafant els vertexs aparellats a G'
 
 La NP-Dificultat de MinMM esta reforçada per la seva dificultat en varis subproblemes. Esta demostrat que MinMM és NP-dificil per a grafs bipartits amb grau maxim 3, grafs planars bipartits i grafs planars cubics i grafs bipartits k-regulars per a qualevol k \>= 3, entre altres.
 
 Tot i aixo hi ha alguns casos per als que MMM es pot resoldre en temps polinomic per a arbres, arbres de cliques (block graph) i altres casos que es veuran a continuació.  
-És tambe conegut que el tamany d’un maximal matching no pot ser mai major que el doble del minimum maximal matching d’un graph. Per tant, qualsevol algoritme per trobar un maximal matching pot obtenir una 2-aproximació per a MinMM.
+És tambe conegut que el tamany d'un maximal matching no pot ser mai major que el doble del minimum maximal matching d'un graph. Per tant, qualsevol algoritme per trobar un maximal matching pot obtenir una 2-aproximació per a MinMM.
 
 # 
 
@@ -55,7 +55,7 @@ Tot i aixo hi ha alguns casos per als que MMM es pot resoldre en temps polinomic
 
 MinMM es NP-Dificil en grafs bipartits regulars
 
-La complexitat de MinMM pot variar segons les caracterìstiques del graf. Quan es busca demostrar la complexitat d’aquest problema es sol avaluar per a subproblemes concrets.
+La complexitat de MinMM pot variar segons les caracterìstiques del graf. Quan es busca demostrar la complexitat d'aquest problema es sol avaluar per a subproblemes concrets.
 
 Per als següents subproblemes la complexitat de MinMM està demostrada com a NP-dificil:
 
@@ -63,7 +63,7 @@ Per als següents subproblemes la complexitat de MinMM està demostrada com a NP
 Un graf bipartit és un graf G tal que els seus vertex es poden dividir en dos sets disjunts i independents U i V. Cada aresta connecta un vertex de U a un de V. \[4\]
 
 **Grafs Plans** amb grau màxim 3.\[3\]  
-Un graf pla és un graf tal que pot ser dibuixat en un pla sense que les arestes s’intersequin.\[5\]
+Un graf pla és un graf tal que pot ser dibuixat en un pla sense que les arestes s'intersequin.\[5\]
 
 **Grafs Quasi-Regulars**\[3\]  
 Un graf quasi-regular és un graf tal que el rang entre el grau mínim i el grau màxim està acotat.
@@ -94,11 +94,11 @@ Un arbre de cliques és un tipus de graf no dirigit en el que cada component bic
 Un graf serie-paral·lel és un graf amb dos vertex expecials denominats com a terminals. Aquests grafs es construeixen recursivament mitjançant operacions de composició en sèrie o en paral·lel.\[7\]  
 ![][image4]  
 **Graf permutació bipartit** \[3\]  
-Un graf permutació és un graf tal que els seus vertex representen els elements d’una seqüència i les arestes representen parells d’elements revertits en una permutació concreta de la seqüència.\[8\]
+Un graf permutació és un graf tal que els seus vertex representen els elements d'una seqüència i les arestes representen parells d'elements revertits en una permutació concreta de la seqüència.\[8\]
 
-# **Algoritmes d’aproximacio**
+# **Algoritmes d'aproximacio**
 
-Tots els algoritmes d’aproximació pasen per el fet que qualsevol maximal matching es com a maxim 2 cops mes gran que el minimum maximal matching.
+Tots els algoritmes d'aproximació pasen per el fet que qualsevol maximal matching es com a maxim 2 cops mes gran que el minimum maximal matching.
 
 ## Demostracio (tot maximal matching es una 2-aproximacio del minimum maximal matching)
 

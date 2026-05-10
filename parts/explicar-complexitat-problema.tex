@@ -1,6 +1,6 @@
 \section{Explicar complexitat problema}
 Tot i que el problema de maximal matching es pot resoldre en temps polinòmic, no es coneix cap algoritme de temps polinòmic per resoldre minimum maximal matching.
-El problema decisional de trobar un maximal matching amb tamany k és un exemple clar de un problema NP-Complet, I per tant el problema d’optimització de trobar el seu mínim és NP-Hard d’Optimització.
+El problema decisional de trobar un maximal matching amb tamany k és un exemple clar de un problema NP-Complet, I per tant el problema d'optimització de trobar el seu mínim és NP-Hard d'Optimització.
 
 Veurem la prova que és NP-hard amb una reducció de Vertex Cover (un altre problema NP-hard).
 Explicació de Vertex Cover:
@@ -8,7 +8,7 @@ Explicació de Vertex Cover:
 	Me devuelve un conjunto de vertices C tq toda arista del grafo tiene un extremo en un vertice del conjunto C.
 Reducció:
 	Partim de la Idea que si tenim un Vertex Cover, no podem treure cap node per cobrir totes les aristes.
-	Partim d’un graf G i generarem un G’ tq:
+	Partim d'un graf G i generarem un G' tq:
 
 \begin{itemize}
 	\item Per tota arista $(u,v) \in E$ en generem un node $X_{uv}$
@@ -16,23 +16,23 @@ Reducció:
 \item (Tota arista pasa a ser un vertex.)
 \end{itemize}
 
-Com construir el Matching desde G’?
+Com construir el Matching desde G'?
 
 \begin{itemize}
 	\item Aparello tot node $X_{uv}$ amb un node $\in C$ (al vertex cover).
 \item Això em dona un aparellament maximal (no puc afegir cap i minim, tmp ho puc fer en menys).
-	\item Sempre, si tinc un vertex cover de $k$ nodes, tindré un aparellament amb $k' \le |E| + k \rightarrow$ puc acotar el nombre d’aparellaments reduint la $k$ del vertex cover.
+	\item Sempre, si tinc un vertex cover de $k$ nodes, tindré un aparellament amb $k' \le |E| + k \rightarrow$ puc acotar el nombre d'aparellaments reduint la $k$ del vertex cover.
 \end{itemize}
 
 	Per que funciona?
 
 \begin{itemize}
-\item Aquest aparellament cobreix els nodes corresponents mitjançant els vèrtexs Xuv, i és maximal ja que no es poden afegir més arestes sense violar les restriccions. També serà minim ja que mai no es podrà fer amb un nombre menor d’arestes.
-\item La importància darrera l’optimització del VC és que a menor VC, se’ns garanteix que podrem trobar un MinMM menor (acotat millor) i fer-ho més optim.
-\item Desd el meu G’ puc tornar a VC agafant els vertexs aparellats a G’
+\item Aquest aparellament cobreix els nodes corresponents mitjançant els vèrtexs Xuv, i és maximal ja que no es poden afegir més arestes sense violar les restriccions. També serà minim ja que mai no es podrà fer amb un nombre menor d'arestes.
+\item La importància darrera l'optimització del VC és que a menor VC, se'ns garanteix que podrem trobar un MinMM menor (acotat millor) i fer-ho més optim.
+\item Desd el meu G' puc tornar a VC agafant els vertexs aparellats a G'
 \end{itemize}
 
 La NP-Dificultat de MinMM esta reforçada per la seva dificultat en varis subproblemes. Esta demostrat que MinMM és NP-dificil per a grafs bipartits amb grau maxim 3, grafs planars bipartits i grafs planars cubics i grafs bipartits k-regulars per a qualevol $k \ge 3$, entre altres.
 
 Tot i aixo hi ha alguns casos per als que MMM es pot resoldre en temps polinomic per a arbres, arbres de cliques (block graph) i altres casos que es veuran a continuació.
-És tambe conegut que el tamany d’un maximal matching no pot ser mai major que el doble del minimum maximal matching d’un graph. Per tant, qualsevol algoritme per trobar un maximal matching pot obtenir una 2-aproximació per a MinMM.
+És tambe conegut que el tamany d'un maximal matching no pot ser mai major que el doble del minimum maximal matching d'un graph. Per tant, qualsevol algoritme per trobar un maximal matching pot obtenir una 2-aproximació per a MinMM.

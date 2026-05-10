@@ -1,2 +1,48 @@
-\section{Algoritmes d’aproximacio}
-Tots els algoritmes d’aproximació pasen per el fet que qualsevol maximal matching es com a maxim 2 cops mes gran que el minimum maximal matching.
+\section{Algoritmes d'aproximacio}
+Tots els algoritmes d'aproximació pasen per el fet que qualsevol maximal matching es com a maxim 2 cops mes gran que el minimum maximal matching.
+\subsection{Demostracio tot maximal matching es una 2-aproximacio del minimum maximal matching}
+
+Sigui M un maximal matching i M* un minimum maximal matching per a un graf G.
+Volem demostrar que $|M| \le 2|M*|$.
+
+A partir de M* podem construir un vertex cover C de G de la següent manera: per cada aresta (u,v) en M*, afegim u i v a C. Això garanteix que cada aresta en M* té almenys un extrem a C.
+La mida de C es com a màxim $2|M*|$ ja que cada aresta en M* contribueix amb com a màxim 2 vèrtexs a C.
+Ara, com que M és un maximal matching, cada aresta en M té almenys un extrem a C. Si no fos així, podríem afegir aquesta aresta a M sense violar la seva maximalitat, cosa que és una contradicció.
+Per tant, cada aresta en M té almenys un extrem a C, i com a molt, cada vèrtex en C pot cobrir una aresta en M. Això implica que $|M| \le |C| \le 2|M*|$.
+
+\subsection{Algoritmes}
+Sabent que qualsevol maximal matching és una 2-aproximació del minimum maximal matching, podem utilitzar qualsevol algoritme que trobi un maximal matching per obtenir una solució aproximada per a MinMM.
+Per exemple un algorisme greedy que iterativament selecciona una aresta no coberta i l'afegeix al matching fins que no es puguin afegir més arestes, ens donarà un maximal matching i per tant una 2-aproximació per a MinMM.\\
+Per obtenir una millor aproximació existeixen basicament 2 opcions:
+\begin{itemize}
+    \item Una aproximacio de $(2 - \frac {c \times \log n} {n} )$ per algun $c > 0$ [10], asimptoticament segueix sent 2, pero es una millora.
+    \item Una aproximacio a traves de LP amb factor $(2 - \frac {1} {\Delta G + 1})$ on $\Delta G$ es el grau maxim del graf. [11]
+\end{itemize}
+
+\subsection{Aproximacio a traves de LP}
+\subsubsection{Formulacio de MinMM com a LP}
+Sigui G = (V, E) un graf. Podem formular el problema de minimum maximal matching com un problema d'optimització entera (IP) de la següent manera:
+
+\begin{abstract}
+\[
+\begin{aligned}
+\text{Minimitza:}\quad & \sum_{e\in E} x_e \\
+\text{S.t.:}\quad & \sum_{i \in {\delta(e)} x_{\delta(e)} \ge 1 \quad &&\forall e\in E,\\
+& x_e \ge 0 \quad &&\forall e\in E.
+\end{aligned}
+\]
+
+On: $x_e$ indica si l'aresta $e$ pertany a l'edge-dominating set i $\delta(e)$ són les arestes adjacents a $e$.
+En la condicio 1 garantim que cada aresta estigui coberta per una aresta en el conjunt final.
+\end{abstract}
+
+
+
+
+\subsection*{Referències}
+\begin{enumerate}
+\setcounter{enumi}{9}
+\item \href{https://link.springer.com/chapter/10.1007/978-3-540-93980-1_21}{Buchsbaum, A. L., Kaplan, H., \& Rogers, A. (2008). Randomized approximation algorithms for maximum matching and minimum maximal matching.}
+\item \href{https://www.sciencedirect.com/science/article/abs/pii/S0020019011000408?via%3Dihub}{Matsumoto, Y., Kamiyama, N., \& Imai, K. (2011). An approximation algorithm dependent on edge-coloring number for minimum maximal matching problem. \textit{Information Processing Letters}, 111(10), 465--468.}
+\end{enumerate}
+
