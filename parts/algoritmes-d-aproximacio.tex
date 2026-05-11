@@ -20,24 +20,72 @@ Per obtenir una millor aproximació existeixen basicament 2 opcions:
 \end{itemize}
 
 \subsection{Aproximacio a traves de LP}
-\subsubsection{Formulacio de MinMM com a LP}
+\subsubsection{Formulacio de MinMM com a IP}
 Sigui G = (V, E) un graf. Podem formular el problema de minimum maximal matching com un problema d'optimització entera (IP) de la següent manera:
 
 \begin{abstract}
 \[
 \begin{aligned}
 \text{Minimitza:}\quad & \sum_{e\in E} x_e \\
-\text{S.t.:}\quad & \sum_{i \in {\delta(e)} x_{\delta(e)} \ge 1 \quad &&\forall e\in E,\\
-& x_e \ge 0 \quad &&\forall e\in E.
+\text{S.t.:}\quad & \sum_{i \in {\delta(e)}} {x_i} \ge 1 \quad &&\forall e\in E,\\
+& x_e \in \{0,1\} \quad &&\forall e\in E.
 \end{aligned}
 \]
 
 On: $x_e$ indica si l'aresta $e$ pertany a l'edge-dominating set i $\delta(e)$ són les arestes adjacents a $e$.
 En la condicio 1 garantim que cada aresta estigui coberta per una aresta en el conjunt final.
 \end{abstract}
+\subsubsection{Relaxacio de l'IP a LP}
+Per relaxar aquest problema d'optimització entera a un problema LP, nomes canviem la ultima condicio a $x_e \ge 0$.
+\subsubsection{Aproximacio a traves de LP}
+Un cop tenim la solucio obtinguda a traves de LP ($OPT_LP$) fem el seguent:
+Diem $x^*_e$ a la solucio obtinguda per a cada aresta $e$.
+\begin{enumerate}
+    \item Asignem a cada aresta $e$ el valor de $x^*_e$ obtingut a la solucio LP com a pes.
+    \item Resolem el problema de maximum-weight matching amb aquests pesos per obtenir un matching M. (blossom algorithm - Edmonds(polynomic))
+    \item Retornem M com a solucio aproximada per a MinMM.
+\end{enumerate}
 
+\subsubsection{Factor aproximacio}
 
+Demostrem que l'algoritme assoleix un factor d'aproximació de $\left(2 - \frac{1}{\chi'(G)}\right)$, on $\chi'(G)$ és el nombre cromàtic d'arestes de $G$, és a dir, el nombre mínim de matchings en que $G$ pot ser descompost.
 
+\textbf{Lema 1.} Sigui $\mathbf{x} \in \mathbb{R}^E$ una solució factible de (LP) i $M$ un maximal matching de $G$. Aleshores $|M| \le 2 \cdot x(E) - x(M)$, on $x(A) = \sum_{e \in A} x_e$ per a qualsevol $A \subseteq E$.
+
+\textit{Demostració.} Com que $\mathbf{x}$ és factible, per a cada $e \in E$ es compleix $x(\delta(e)) \ge 1$. Sumant sobre totes les arestes $e \in M$:
+\[
+|M| \le \sum_{e \in M} x(\delta(e)).
+\]
+Com que $M$ és un matching, les seves arestes no comparteixen extrems. Per tant, la única aresta de $M$ en $\delta(e)$ és la pròpia $e$, i cada aresta $f \notin M$ és adjacent a com a màxim 2 arestes de $M$ (una per cada extrem de $f$). Separant la contribució de les arestes dins i fora de $M$:
+\[
+\sum_{e \in M} x(\delta(e)) = x(M) + \sum_{e \in M}\;\sum_{\substack{f \in \delta(e) \\ f \notin M}} x_f \;\le\; x(M) + 2\sum_{f \notin M} x_f = 2x(E) - x(M). \quad \square
+\]
+
+\textbf{Lema 2.} Sigui $M$ el maximum weight matching de $G$ amb pesos $w(e) = x^*_e$ (la solució òptima de LP). Aleshores:
+\[
+x^*(M) \ge \frac{\mathrm{OPT_{LP}}}{\chi'(G)}.
+\]
+
+\textit{Demostració.} Per definició de $\chi'(G)$, el graf $G$ es descompon en $\chi'(G)$ matchings $M_1, \ldots, M_{\chi'(G)}$ (acoloriment d'arestes). Com que formen una partició de $E$:
+\[
+\sum_{i=1}^{\chi'(G)} x^*(M_i) = x^*(E) = \mathrm{OPT_{LP}}.
+\]
+Pel principi del colomar, existeix almenys un $M'$ entre els $M_i$ tal que:
+\[
+x^*(M') \ge \frac{\mathrm{OPT_{LP}}}{\chi'(G)}.
+\]
+Com que $M$ és el maximum weight matching, $x^*(M) \ge x^*(M')$, i el resultat segueix. $\square$
+
+\medskip
+Observem que, com que $w(e) = x^*_e \ge 0$ per a tota aresta, el matching $M$ de pes màxim és necessàriament un maximal matching (afegir qualsevol aresta compatible no pot reduir el pes total). Per tant, podem aplicar el Lema 1 a $M$ i a la solució $\mathbf{x}^*$, i el Lema 2 per acotar $x^*(M)$ per sota:
+\[
+|M| \le 2 \cdot \mathrm{OPT_{LP}} - x^*(M) \le 2 \cdot \mathrm{OPT_{LP}} - \frac{\mathrm{OPT_{LP}}}{\chi'(G)} = \left(2 - \frac{1}{\chi'(G)}\right) \cdot \mathrm{OPT_{LP}}.
+\]
+Com que la relaxació LP proporciona un lower bound, $\mathrm{OPT_{LP}} \le \mathrm{OPT_{MinMM}}$, i per tant:
+\[
+|M| \le \left(2 - \frac{1}{\chi'(G)}\right) \cdot \mathrm{OPT_{MinMM}}.
+\]
+Finalment, pel teorema de Vizing, $\Delta G \le \chi'(G) \le \Delta G + 1$, i per tant $\frac{1}{\chi'(G)} \ge \frac{1}{\Delta G + 1}$. Això implica que el factor d'aproximació és en particular $\left(2 - \frac{1}{\Delta G + 1}\right)$.
 
 \subsection*{Referències}
 \begin{enumerate}
